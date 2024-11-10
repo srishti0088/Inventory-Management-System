@@ -20,6 +20,7 @@ namespace InventoryManagementSystem.Controllers
         [HttpGet]
         public ActionResult DisplayPurchase()
         {
+
             List<Purchase> list = db.Purchases.OrderByDescending(x => x.id).ToList();
             return View(list);
         }
