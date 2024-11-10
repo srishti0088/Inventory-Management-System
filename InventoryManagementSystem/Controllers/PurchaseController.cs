@@ -13,6 +13,7 @@ namespace InventoryManagementSystem.Controllers
         // GET: Purchase
         public ActionResult Index()
         {
+
             return View();
         }
 
