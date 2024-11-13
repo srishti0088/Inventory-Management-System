@@ -149,8 +149,18 @@
 					</li>
 					<li>@Html.ActionLink("Help", "", "")</li>
 				</ul>
-				
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						@if (Session["u_id"] != null)
+						{ 
+							@Html.ActionLink("Sign Out", "Signout", "User", null, new { @class = "ht" })
+						}
+
+					</li>
+				</ul>
 			</div>
+
+
 		</div>
 	</div>
 	<div class="container body-content">

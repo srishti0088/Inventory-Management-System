@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="db_testModel.Product">
         <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="pro_fk_ad" ColumnName="pro_fk_ad" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Product_name" ColumnName="Product_name" />
           <ScalarProperty Name="Product_qnty" ColumnName="Product_qnty" />
@@ -13,6 +14,7 @@
     <EntitySetMapping Name="Purchases">
       <EntityTypeMapping TypeName="db_testModel.Purchase">
         <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="Pur_fk_user" ColumnName="Pur_fk_user" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Purchase_prod" ColumnName="Purchase_prod" />
           <ScalarProperty Name="Purchase_qnty" ColumnName="Purchase_qnty" />
@@ -27,6 +29,26 @@
           <ScalarProperty Name="Sale_prod" ColumnName="Sale_prod" />
           <ScalarProperty Name="Sale_qnty" ColumnName="Sale_qnty" />
           <ScalarProperty Name="Sale_date" ColumnName="Sale_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_admin">
+      <EntityTypeMapping TypeName="db_testModel.tbl_admin">
+        <MappingFragment StoreEntitySet="tbl_admin">
+          <ScalarProperty Name="ad_password" ColumnName="ad_password" />
+          <ScalarProperty Name="ad_username" ColumnName="ad_username" />
+          <ScalarProperty Name="ad_id" ColumnName="ad_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="db_testModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="u_contact" ColumnName="u_contact" />
+          <ScalarProperty Name="u_password" ColumnName="u_password" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

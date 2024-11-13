@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<InventoryManagementSystem.Models.Purchase>
 
 @{
-    ViewBag.Title = "DisplayPurchase";
+	ViewBag.Title = "DisplayPurchase";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Display Purchase</h2>
 
 <p>
-    @Html.ActionLink("Create New", "PurchaseProduct","Purchase", new { @class = "btn btn-primary" })
+    @Html.ActionLink("Create New Purchase", "PurchaseProduct","Purchase", new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr class="success">

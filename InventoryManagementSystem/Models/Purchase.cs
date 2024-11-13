@@ -18,5 +18,8 @@ namespace InventoryManagementSystem.Models
         public string Purchase_prod { get; set; }
         public string Purchase_qnty { get; set; }
         public System.DateTime Purchase_date { get; set; }
+        public Nullable<int> Pur_fk_user { get; set; }
+    
+        public virtual tbl_user tbl_user { get; set; }
     }
 }

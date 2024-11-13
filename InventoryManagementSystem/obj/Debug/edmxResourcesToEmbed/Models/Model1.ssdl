@@ -7,6 +7,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Product_name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Product_qnty" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="pro_fk_ad" Type="int" />
   </EntityType>
   <EntityType Name="Purchase">
     <Key>
@@ -16,6 +17,7 @@
     <Property Name="Purchase_prod" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Purchase_qnty" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Purchase_date" Type="date" Nullable="false" />
+    <Property Name="Pur_fk_user" Type="int" />
   </EntityType>
   <EntityType Name="Sale">
     <Key>
@@ -26,9 +28,61 @@
     <Property Name="Sale_qnty" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Sale_date" Type="date" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ad_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Product__pro_fk___72C60C4A">
+    <End Role="tbl_admin" Type="Self.tbl_admin" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_admin">
+        <PropertyRef Name="ad_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="pro_fk_ad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Purchase__Pur_fk__797309D9">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="0..1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="Pur_fk_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="db_testModelStoreContainer">
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Product__pro_fk___72C60C4A" Association="Self.FK__Product__pro_fk___72C60C4A">
+      <End Role="tbl_admin" EntitySet="tbl_admin" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Purchase__Pur_fk__797309D9" Association="Self.FK__Purchase__Pur_fk__797309D9">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

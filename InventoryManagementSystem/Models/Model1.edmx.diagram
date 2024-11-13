@@ -8,6 +8,10 @@
         <EntityTypeShape EntityType="db_testModel.Product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_testModel.Purchase" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_testModel.Sale" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_testModel.tbl_admin" Width="1.5" PointX="1" PointY="6.875" />
+        <EntityTypeShape EntityType="db_testModel.tbl_user" Width="1.5" PointX="0.75" PointY="9.75" />
+        <AssociationConnector Association="db_testModel.FK__Product__pro_fk___72C60C4A" />
+        <AssociationConnector Association="db_testModel.FK__Purchase__Pur_fk__797309D9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -28,5 +28,7 @@ namespace InventoryManagementSystem.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<tbl_admin> tbl_admin { get; set; }
+        public virtual DbSet<tbl_user> tbl_user { get; set; }
     }
 }

@@ -31,13 +31,25 @@ namespace InventoryManagementSystem.Controllers
         [HttpGet]
         public ActionResult CreateProduct()
         {
+            if (Session["ad_id"] == null)
+            {
+                return RedirectToAction("login", "Admin");
+            }
             return View();
         }
 
         [HttpPost]
         public ActionResult CreateProduct(Product pro)
         {
-            db.Products.Add(pro);
+            //db.Products.Add(pro);
+            //db.SaveChanges();
+            //return RedirectToAction("DisplayProduct");
+
+            Product product = new Product();
+            product.Product_name = pro.Product_name;
+            product.Product_qnty = pro.Product_qnty;
+            product.pro_fk_ad = Convert.ToInt32(Session["ad_id"].ToString());
+            db.Products.Add(product);
             db.SaveChanges();
             return RedirectToAction("DisplayProduct");
 
@@ -56,6 +68,7 @@ namespace InventoryManagementSystem.Controllers
             Product pr = db.Products.Where(x => x.id == id).SingleOrDefault();
             pr.Product_name = pro.Product_name;
             pr.Product_qnty = pro.Product_qnty;
+            pr.pro_fk_ad = Convert.ToInt32(Session["ad_id"].ToString());
             db.SaveChanges();
 
 

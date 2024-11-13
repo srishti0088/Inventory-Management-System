@@ -17,5 +17,8 @@ namespace InventoryManagementSystem.Models
         public int id { get; set; }
         public string Product_name { get; set; }
         public string Product_qnty { get; set; }
+        public Nullable<int> pro_fk_ad { get; set; }
+    
+        public virtual tbl_admin tbl_admin { get; set; }
     }
 }

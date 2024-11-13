@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\InventoryManagementSystem",
-    "\\InventoryManagementSystem\\App_Data"
+    "\\InventoryManagementSystem\\Controllers"
   ],
+  "SelectedNode": "\\InventoryManagementSystem\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
